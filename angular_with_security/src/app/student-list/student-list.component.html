@@ -1,0 +1,46 @@
+<div class="row">
+<form class="col-md-4 form my-2 mylg-0 mb-3">
+    <input type="search" (ngModelChange)="searchStudent(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Student ..." >
+</form>
+<div>
+     <button style=" float: right;" class="btn btn-primary" [routerLink]="['/dashboard']"> Go To dashboard</button>
+</div>
+</div>
+<div class = "row">
+    <h2> Student List</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> Student Id</th>
+            <th> Student Name</th>
+            <th> Student Email </th>
+            <th> Student phone </th>
+            <th> Student Address</th>
+            <th> Cource Id</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let student of students" >
+            <td> {{ student.sId }} </td>
+            <td> {{ student.sName }} </td>
+            <td> {{ student.sEmail }} </td>
+            <td> {{ student.sPhone }} </td>
+            <td> {{ student.sAddress }} </td>
+            <td> {{ student.course_id}}</td>
+            <td>
+                <button style="margin-left: 10px;" class="btn btn-primary"[routerLink]="['/update-student']">Update</button>
+                <button style="margin-left: 10px;" (click) = "deleteStudent(student.sId)" class = "btn btn-danger" > Delete</button>
+                <button style="margin-left: 10px;" class="btn btn-primary"[routerLink]="['/student-details']">View</button>
+
+                <!-- <button (click) = "updateStudent(student.sId)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deleteStudent(student.sId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "studentDetails(student.sId)" class = "btn btn-primary" style="margin-left: 10px"> View</button> -->
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

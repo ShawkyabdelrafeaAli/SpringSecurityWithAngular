@@ -1,0 +1,47 @@
+
+
+<div>
+    <button style=" float: right; margin-top: 50px;" class="btn btn-primary" [routerLink]="['/dashboard']"> Go To dashboard</button>
+</div>
+
+
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3 mt-5">
+        <div class="row">
+            <h3 class="text-center"> Create Student </h3>
+            <hr />
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <label> Id Cource</label>
+                        <input type="hidden" class="form-control" id="sId" [(ngModel)]="cource.cId"
+                            name="sid">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Cource Name</label>
+                        <input type="text" class="form-control" id="sName" formControlName="cName" [(ngModel)]="cource.cName"
+                            name="sName">
+                            <span style="color: red;" *ngIf="cName&& cName.invalid && cName.touched">this Name is not valid </span>
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label> Cource Price</label>
+                        <input type="text" class="form-control" id="cPrice" formControlName="cPrice" [(ngModel)]="cource.cPrice"
+                            name="cPrice">
+                            <span style="color: red;" *ngIf="cPrice&& cPrice.invalid && cPrice.touched">this cPrice is not valid </span>
+
+                    </div>
+
+                 
+                  
+                    <br />
+                    <button   [disabled]="loginForm.invalid" class="btn btn-success" type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

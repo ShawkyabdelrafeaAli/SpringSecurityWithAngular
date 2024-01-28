@@ -1,0 +1,39 @@
+<div class="row">
+    <form class="col-md-4 form my-2 mylg-0 mb-3">
+        <input type="search" (ngModelChange)="searchCourse(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Course ..." >
+    </form>
+    <div>
+         <button style=" float: right;" class="btn btn-primary" [routerLink]="['/dashboard']"> Go To dashboard</button>
+    </div>
+    </div>
+
+<div class = "row">
+    <h2>Course List</h2>
+</div>
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> Cource Id</th>
+            <th> Cource Name</th>
+            <th> Cource Price </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let course of courses" >
+            <td> {{ course.cId}} </td>
+            <td> {{ course.cName}} </td>
+            <td> {{ course.cPrice }} </td>
+         
+
+
+            <td>
+                <button (click) = "updateCource(course.cId)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deleteCource(course.cId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "courceDetails(course.cId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
